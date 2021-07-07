@@ -7,7 +7,9 @@ import com.example.noteapp.activities.UpdateNoteActivity
 import com.example.noteapp.viewmodel.NoteViewModel
 import dagger.BindsInstance
 import dagger.Component
+import javax.inject.Singleton
 
+@Singleton
 @Component(
     modules = [AppModule::class]
 )

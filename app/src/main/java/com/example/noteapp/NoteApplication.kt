@@ -6,11 +6,11 @@ import com.example.noteapp.di.DaggerAppComponent
 
 class NoteApplication : Application() {
 
-//    lateinit var appComponent:AppComponent
+    lateinit var appComponent:AppComponent
 
     override fun onCreate() {
         super.onCreate()
-//        appComponent = DaggerAppComponent.builder().application(this).build()
+        appComponent = DaggerAppComponent.builder().application(this).build()
     }
 
 }

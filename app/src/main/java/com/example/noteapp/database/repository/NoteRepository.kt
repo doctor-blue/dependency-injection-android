@@ -5,7 +5,9 @@ import com.example.noteapp.database.NoteDatabase
 import com.example.noteapp.database.dao.NoteDao
 import com.example.noteapp.model.Note
 import javax.inject.Inject
+import javax.inject.Singleton
 
+@Singleton
 class NoteRepository @Inject constructor(noteDatabase: NoteDatabase) {
 
     private val noteDao: NoteDao = noteDatabase.getNoteDao()
