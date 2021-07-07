@@ -32,7 +32,7 @@ class UpdateNoteActivity : AppCompatActivity() {
 
 
 
-        Log.d(TAG, "UpdateNoteActivity: $noteViewModel")
+        Log.d(TAG, "UpdateNoteActivity: ${noteViewModel.noteRepository} , $noteViewModel")
 
         val note = intent.getSerializableExtra("UPDATE_NOTE") as Note
         binding.edtNoteTitle.setText(note.title)

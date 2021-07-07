@@ -30,7 +30,7 @@ class AddNoteActivity : AppCompatActivity() {
         appComponent.inject(this)
 
 
-        Log.d(TAG, "AddNoteActivity: $noteViewModel")
+        Log.d(TAG, "AddNoteActivity: ${noteViewModel.noteRepository} , $noteViewModel")
 
         binding.btnAdd.setOnClickListener {
             val note = Note(binding.edtNoteTitle.text.toString(), binding.edtNoteDes.text.toString())

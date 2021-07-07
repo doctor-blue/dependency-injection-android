@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
         val appComponent = (application as NoteApplication).appComponent
         appComponent.inject(this)
 
-        Log.d(TAG, "MainActivity: $noteViewModel")
+        Log.d(TAG, "MainActivity: ${noteViewModel.noteRepository} , $noteViewModel")
 
         initControls()
         initEvents()

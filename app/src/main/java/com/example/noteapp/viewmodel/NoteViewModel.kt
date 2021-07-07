@@ -8,8 +8,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 import javax.inject.Singleton
 
-@Singleton
-class NoteViewModel @Inject constructor(private val noteRepository: NoteRepository) {
+class NoteViewModel @Inject constructor( val noteRepository: NoteRepository) {
 
     fun insertNote(note: Note) = GlobalScope.launch {
         noteRepository.insertNote(note)

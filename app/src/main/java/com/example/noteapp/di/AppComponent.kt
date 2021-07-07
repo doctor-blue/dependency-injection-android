@@ -21,6 +21,8 @@ interface AppComponent {
     fun inject(activity: AddNoteActivity)
     fun inject(activity: UpdateNoteActivity)
 
+    fun getAuthComponentFactory(): AuthComponent.Factory
+
     @Component.Builder
     interface Builder {
 
