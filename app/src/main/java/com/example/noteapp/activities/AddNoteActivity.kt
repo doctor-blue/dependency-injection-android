@@ -2,22 +2,20 @@ package com.example.noteapp.activities
 
 import android.os.Bundle
 import android.util.Log
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.ViewModelProvider
-import com.example.noteapp.NoteApplication
 import com.example.noteapp.R
 import com.example.noteapp.databinding.ActivityAddNoteBinding
-import com.example.noteapp.di.DaggerAppComponent
 import com.example.noteapp.model.Note
 import com.example.noteapp.viewmodel.NoteViewModel
-import javax.inject.Inject
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class AddNoteActivity : AppCompatActivity() {
     private val TAG = "NOTE_VIEW_MODEL"
 
-    @Inject
-    lateinit var noteViewModel: NoteViewModel
+    private val noteViewModel: NoteViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,15 +23,11 @@ class AddNoteActivity : AppCompatActivity() {
         val binding: ActivityAddNoteBinding =
             DataBindingUtil.setContentView(this, R.layout.activity_add_note)
 
-//        val appComponent = DaggerAppComponent.builder().application(application).build()
-        val appComponent = (application as NoteApplication).appComponent
-        appComponent.inject(this)
-
-
         Log.d(TAG, "AddNoteActivity: ${noteViewModel.noteRepository} , $noteViewModel")
 
         binding.btnAdd.setOnClickListener {
-            val note = Note(binding.edtNoteTitle.text.toString(), binding.edtNoteDes.text.toString())
+            val note =
+                Note(binding.edtNoteTitle.text.toString(), binding.edtNoteDes.text.toString())
             noteViewModel.insertNote(note)
             finish()
         }

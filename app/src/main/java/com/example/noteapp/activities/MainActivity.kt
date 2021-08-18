@@ -3,25 +3,23 @@ package com.example.noteapp.activities
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.noteapp.NoteApplication
 import com.example.noteapp.R
 import com.example.noteapp.adapter.NoteAdapter
 import com.example.noteapp.databinding.ActivityMainBinding
-import com.example.noteapp.di.DaggerAppComponent
 import com.example.noteapp.model.Note
 import com.example.noteapp.viewmodel.NoteViewModel
-import javax.inject.Inject
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private val TAG = "NOTE_VIEW_MODEL"
 
-    @Inject
-    lateinit var noteViewModel: NoteViewModel
+    private val noteViewModel: NoteViewModel by viewModels()
 
     private lateinit var binding: ActivityMainBinding
 
@@ -29,9 +27,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
-//        val appComponent = DaggerAppComponent.builder().application(application).build()
-        val appComponent = (application as NoteApplication).appComponent
-        appComponent.inject(this)
 
         Log.d(TAG, "MainActivity: ${noteViewModel.noteRepository} , $noteViewModel")
 

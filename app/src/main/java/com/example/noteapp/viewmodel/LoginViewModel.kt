@@ -1,9 +1,8 @@
 package com.example.noteapp.viewmodel
 
-import com.example.noteapp.di.Auth
+import androidx.lifecycle.ViewModel
 import javax.inject.Inject
 
-@Auth
-class LoginViewModel @Inject constructor() {
+class LoginViewModel @Inject constructor() :ViewModel(){
 
 }

@@ -4,12 +4,13 @@ import android.app.Application
 import com.example.noteapp.database.NoteDatabase
 import dagger.Module
 import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
-@Module(
-    subcomponents = [AuthComponent::class]
-)
-class AppModule {
+@Module
+@InstallIn(SingletonComponent::class)
+object AppModule {
 
     @Singleton
     @Provides
