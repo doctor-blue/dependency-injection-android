@@ -6,9 +6,7 @@ import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
 
-@Module(
-    subcomponents = [AuthComponent::class]
-)
+@Module
 class AppModule {
 
     @Singleton
