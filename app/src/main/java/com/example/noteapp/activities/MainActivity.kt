@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
 
-        Log.d(TAG, "MainActivity: ${noteViewModel.noteRepository} , $noteViewModel")
+//        Log.d(TAG, "MainActivity: ${noteViewModel.noteRepository} , $noteViewModel")
 
         initControls()
         initEvents()
